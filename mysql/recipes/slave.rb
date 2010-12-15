@@ -26,6 +26,7 @@ raise "Machine role is #{node[:mysql][:server][:replication][:role]}, set to sla
 
 masters = search(:node, "mysql_server_replication_role:master")
 
+# FIXME: Need to handle multiple masters gracefully.
 # For now, assume there's only one master.
 
 master_ip = masters[0][:ipaddress]
