@@ -1,0 +1,5 @@
+# Setup default configuration for rvm.
+# If an rvm install exists in the home directory, don't load this.'
+
+# NOTE: The logic that would normally go in here currently 
+#       resides in /etc/profile.d/rvm.sh for all login shells.

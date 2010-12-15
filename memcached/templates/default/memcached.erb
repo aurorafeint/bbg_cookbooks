@@ -1,0 +1,5 @@
+PORT="<%= node[:memcached][:port] %>"
+USER="memcached"
+MAXCONN="5120"
+OPTIONS="-l <%= node[:memcached][:bindaddress] %>"
+CACHESIZE="<%= node[:memcached][:cache_size] %>"

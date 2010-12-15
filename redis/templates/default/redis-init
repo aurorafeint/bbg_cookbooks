@@ -1,0 +1,42 @@
+#!/bin/sh
+
+REDISPORT=<%= @node[:redis][:port] %>
+PIDFILE=<%= @node[:redis][:pidfile] %>
+
+case "$1" in
+    start)
+        if [ -f $PIDFILE ]
+        then
+                echo "$PIDFILE exists, process is already running or crashed"
+        else
+                echo -n "Starting Redis server... "
+                sudo -u redis bash -c '<%= @node[:redis][:dir] %>/bin/redis-server <%= @node[:redis][:dir] %>/etc/redis.conf'
+                if [ -f $PIDFILE ]
+                then
+                        echo "Done."
+                else
+                        echo "Failure!"
+                fi
+        fi
+        ;;
+    stop)
+        if [ ! -f $PIDFILE ]
+        then
+                echo "$PIDFILE does not exist, process is not running!"
+        else
+                echo -n "Stopping Redis server... "
+                sudo -u redis bash -c 'echo "SHUTDOWN" | <%= @node[:redis][:dir] %>/bin/redis-cli'
+                if [ ! -f $PIDFILE ]
+                then
+                        echo "Done."
+                else
+                        echo "Failure!"
+                fi
+        fi
+        ;;
+	restart)
+        $0 stop
+		sleep 1
+        $0 start
+        ;;
+esac
