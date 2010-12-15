@@ -82,7 +82,7 @@ dualmasters.each do |dualmaster|
   master_log_pos = dualmaster[:mysql][:server][:replication][:log_pos]
   master_ip = dualmaster[:ipaddress]
   # Create replication user for the dual master.
-  slave "create-dualmaster-#{dualmaster[:fqdn]} do
+  slave "create-dualmaster-#{dualmaster[:fqdn]}" do
     replication_user dualmaster[:mysql][:server][:replication][:user]
     replication_password dualmaster[:mysql][:server][:replication][:password]
     ip_address master_ip
