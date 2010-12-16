@@ -18,6 +18,7 @@
 #
 
 include_recipe "system-users::membase"
+include_recipe "ksh"
 
 if node[:memory][:total].to_i >= 16000000
   memoryquota = 15500000

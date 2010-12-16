@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: system-users
-# Recipe:: membase
+# Cookbook Name:: ksh
+# Recipe:: default
 #
 # Copyright 2010, Blue Box Group, LLC
 #
@@ -17,16 +17,6 @@
 # limitations under the License.
 #
 
-group "membase" do
-  gid 60105
-  action :create
-end
-
-user "membase" do
-  comment "Membase daemon"
-  uid 60105
-  gid 60105
-  home "/opt/membase"
-  shell "/bin/bash"
-  system true
+package "ksh" do
+  action :install
 end
