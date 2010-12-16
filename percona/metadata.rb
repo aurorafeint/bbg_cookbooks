@@ -1,12 +1,12 @@
 maintainer       "Blue Box Group, LLC"
 maintainer_email "support@blueboxgrp.com"
 license          "Apache v2.0"
-description      "Installs/Configures mysql"
+description      "Installs/Configures percona"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "0.5.0"
 
 depends          "system-users"
-conflicts        "percona"
+conflicts        "mysql"
 
 %w{centos redhat}.each do |os|
   supports os
