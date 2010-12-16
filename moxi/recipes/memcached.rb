@@ -13,14 +13,18 @@ template "/opt/moxi/config/memcached.cfg" do
   owner "root"
   group "root"
   action :create
-  notifies :run, "bash[start-moxi-memcached]"
+  notifies :restart, "service[moxi-server]"
 end
 
-bash "start-moxi-memcached" do
-  cwd "/opt/moxi/config"
-  code <<-EOH
-    /opt/moxi/bin/moxi -z ./memcached.cfg &
-  EOH
-  not_if "ps auxwww | grep moxi"
-  action :nothing
+cookbook_file "/etc/init.d/moxi-server" do
+  source "moxi-init"
+  mode 0755
+  owner "root"
+  group "root"
+  action :create
+end
+
+service "moxi-server" do
+  supports :restart => true, :reload => true, :status => true
+  action [ :enable, :start ]
 end
