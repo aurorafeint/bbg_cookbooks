@@ -18,10 +18,10 @@ grouping 'mysql/server/replication',
 attribute 'mysql/server/replication/role',
   :display_name => "MySQL Replication Role",
   :description => "Describes what role the MySQL machine is set to (slave/master/dualmaster)",
-  :choice => \[ 'slave', 'master', 'standalone', 'dualmaster' \],
+  :choice => [ 'slave', 'master', 'standalone', 'dualmaster' ],
   :type => "string",
   :required => "recommended",
-  :recipes => \[ 'mysql::master', 'mysql::slave', 'mysql::dualmaster' \],
+  :recipes => [ 'mysql::master', 'mysql::slave', 'mysql::dualmaster' ],
   :default => "standalone"
 
 attribute 'mysql/server/replication/user',
@@ -29,7 +29,7 @@ attribute 'mysql/server/replication/user',
   :description => "Username that should be created and used on a master server for replication.",
   :type => "string",
   :required => "optional",
-  :recipes => \[ 'mysql::master', 'mysql::slave', 'mysql::dualmaster' \],
+  :recipes => [ 'mysql::master', 'mysql::slave', 'mysql::dualmaster' ],
   :default => "replication"
 
 attribute 'mysql/server/replication/password',
@@ -37,7 +37,7 @@ attribute 'mysql/server/replication/password',
   :description => "Password for connecting to a master server with the replication user.",
   :type => "string",
   :required => "required",
-  :recipes => \[ 'mysql::master', 'mysql::slave', 'mysql::dualmaster' \]
+  :recipes => [ 'mysql::master', 'mysql::slave', 'mysql::dualmaster' ]
 
 attribute 'mysql/server/replication/id',
   :display_name => "MySQL server ID",
@@ -85,7 +85,7 @@ attribute 'mysql/server/datadir',
   :description => "Where your MySQL databases live.",
   :type => "string",
   :required => "optional",
-  :recipes => \[ 'mysql::server' \],
+  :recipes => [ 'mysql::server' ],
   :default => "/var/lib/mysql"
 
 attribute 'mysql/server/logdir',
@@ -93,7 +93,7 @@ attribute 'mysql/server/logdir',
   :description => "Where your MySQL logs are stored.",
   :type => "string",
   :required => "optional",
-  :recipes => \[ 'mysql::server' \],
+  :recipes => [ 'mysql::server' ],
   :default => "/var/log/mysql"
 
 attribute 'mysql/server/bindaddress',
@@ -101,5 +101,5 @@ attribute 'mysql/server/bindaddress',
   :description => "Which IP address MySQL will bind to.",
   :type => "string",
   :required => "recommended",
-  :recipes => \[ 'mysql::server' \],
+  :recipes => [ 'mysql::server' ],
   :default => "127.0.0.1"

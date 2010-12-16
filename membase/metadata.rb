@@ -20,4 +20,4 @@ attribute 'membase/password',
   :description => "Password for the Administrator user.",
   :type => "string",
   :required => "required",
-  :recipes => \[ 'membase::default' \]
+  :recipes => [ 'membase::default' ]

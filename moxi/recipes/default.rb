@@ -19,6 +19,12 @@
 
 include_recipe "system-users::moxi"
 
+if node[:moxi][:server_type] == "memcached"
+  include_recipe "moxi::memcached"
+elsif node[:moxi][:server_type] == "membase"
+  include_recipe "moxi::membase"
+end
+
 pkg = "moxi-server_x86_64_1.6.0.1.rpm"
 pkg_location = "http://c2512712.cdn.cloudfiles.rackspacecloud.com/#{pkg}"
 

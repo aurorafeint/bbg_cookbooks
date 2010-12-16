@@ -20,11 +20,11 @@ attribute 'rvm/rubies',
   :description => "Rubies managed by RVM.",
   :type => "array",
   :required => "recommended",
-  :recipes => \[ 'rvm::default' \]
+  :recipes => [ 'rvm::default' ]
 
 attribute 'rvm/default',
   :display_name => "Default RVM Ruby",
   :description => "Set default Ruby to use with RVM.",
   :type => "string",
   :required => "recommended",
-  :recipes => \[ 'rvm::default' \]
+  :recipes => [ 'rvm::default' ]

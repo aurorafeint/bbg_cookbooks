@@ -20,18 +20,18 @@ attribute 'boost/source',
   :description => "URL to Boost folder containing boost/file",
   :type => "string",
   :required => "optional",
-  :recipes => \[ 'boost::default' \]
+  :recipes => [ 'boost::default' ]
 
 attribute 'boost/file',
   :display_name => "Boost tarball file",
   :description => "Name of the Boost tarball file to download.",
   :type => "string",
   :required => "optional",
-  :recipes => \[ 'boost::default' \]
+  :recipes => [ 'boost::default' ]
 
 attribute 'boost/build_dir',
   :display_name => "Boost build directory",
   :description => "Subdirectory for building Boost",
   :type => "string",
   :required => "optional",
-  :recipes => \[ 'boost::default' \]
+  :recipes => [ 'boost::default' ]
