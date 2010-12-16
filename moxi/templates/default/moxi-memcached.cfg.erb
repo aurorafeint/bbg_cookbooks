@@ -1,0 +1,19 @@
+<%= node[:moxi][:port] %> = {
+  "hashAlgorithm": "CRC",
+  "numReplicas": 0,
+  "serverList":
+    [
+    <% node[:moxi][:servers].each |server| %>
+      <% if server == node[:moxi][:servers].last %>
+      "<%= server[:address] %>:<%= server[:port] %>"
+      <% else %>
+      "<%= server[:address] %>:<%= server[:port] %>",
+      <%- end %>
+    <%- end %>
+    ],
+  "vBucketMap":
+    [
+      [0],
+      [0]
+    ]
+}

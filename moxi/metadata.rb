@@ -10,3 +10,28 @@ version          "0.1.0"
 end
 
 depends          "system-users"
+
+grouping 'moxi',
+  :title => "Moxi options",
+  :description => "Tunable moxi options."
+
+attribute 'moxi/servers',
+  :display_name => "memcached/membase servers",
+  :description => "Servers that moxi should connect to.",
+  :type => "hash",
+  :required => "required",
+  :recipes => [ 'moxi::default', 'moxi::memcached', 'moxi::membase' ]
+
+attribute 'moxi/server_type',
+  :display_name => "Server type",
+  :description => "Types of servers that moxi is connecting to.",
+  :type => "string",
+  :required => "recommended",
+  :recipes => [ 'moxi::default' ]
+
+attribute 'moxi/port',
+  :display_name => "Server port",
+  :description => "Which port moxi should bind to.",
+  :type => "string",
+  :required => "optional",
+  :recipes => [ 'moxi::default', 'moxi::membase', 'moxi::memcached' ]
