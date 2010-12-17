@@ -21,6 +21,6 @@ default[:mysql][:server][:datadir] = "/var/lib/mysql"
 default[:mysql][:server][:logdir] = "/var/log/mysql"
 default[:mysql][:server][:bindaddress] = "127.0.0.1"
 
-if node.mysql.server.replication.attribute?("role")
+if node.mysql.server.attribute?("replication")
   include_attribute "percona::replication"
 end
