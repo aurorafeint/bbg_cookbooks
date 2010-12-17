@@ -31,7 +31,7 @@ end
 
 rpm_package "moxi" do
   source "/tmp/#{pkg}"
-  action :nothing
+  action :install
   only_if {File.exists?("/tmp/#{pkg}")}
 end
 
@@ -40,11 +40,6 @@ directory "/opt/moxi" do
   owner "moxi"
   group "moxi"
   action :create
-end
-
-service "moxi" do
-  supports :status => true, :restart => true
-  action [ :enable, :start ]
 end
 
 if node[:moxi][:server_type] == "memcached"

@@ -19,8 +19,8 @@
 
 moxi="/opt/moxi/bin/moxi"
 prog=$(basename $moxi)
-
-MOXI_CONF_FILE="/opt/moxi/config/memcached.conf"
+pidfile="/var/run/moxi.pid"
+moxiopts="-z /opt/moxi/config/memcached.cfg"
 
 lockfile=/var/lock/subsys/moxi
 
@@ -28,7 +28,7 @@ start() {
     [ -x $moxi ] || exit 5
     [ -f $MOXI_CONF_FILE ] || exit 6
     echo -n $"Starting $prog: "
-    daemon $moxi -z $MOXI_CONF_FILE
+    daemon $moxi -z $MOXI_CONF_FILE -u moxi -d
     retval=$?
     echo
     [ $retval -eq 0 ] && touch $lockfile
