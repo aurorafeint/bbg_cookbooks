@@ -9,8 +9,12 @@ as required.  Automatic MySQL replication requires use of the Opscode Platform
 or an installation of chef-server.
 
 If you don't plan on using automated MySQL replication, you can alternatively
-just apply the mysql::server or mysql::client roles, which should setup a plain
-box that can be configured for replication through other means.
+just apply the percona::server or percona::client roles, which should setup a
+plain box that can be configured for replication through other means.
+
+The percona cookbook conflicts with the mysql cookbook, since they set the
+same exact attributes in Chef and don't really play too well together on the
+same box.
 
 = REQUIREMENTS:
 
