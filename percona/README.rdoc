@@ -44,9 +44,9 @@ Create a node/role file, and make sure you have this general structure:
 
 = LICENSE AND AUTHOR:
 
-Author:: Lee Huffman (<lee.huffman@blueboxgrp.com>) - mysql::client, default, server
+Author:: Lee Huffman (<lee.huffman@blueboxgrp.com>) - percona::client, percona::default, percona::server
 
-Author:: Christian Paredes (<christian.paredes@blueboxgrp.com>) - mysql::master, slave, dualmaster
+Author:: Christian Paredes (<christian.paredes@blueboxgrp.com>) - percona::master, percona::slave, percona::dualmaster
 
 Copyright:: 2010, Blue Box Group, LLC
 
