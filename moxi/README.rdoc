@@ -1,8 +1,36 @@
 = DESCRIPTION:
 
+(FIXME: membase support needs to be added in.)
+
+Installs the moxi memcached/membase proxy.  Since this cookbook depends on
+connecting to other machines in a network, we've made sure to include
+attributes that allow you to define which servers you want to connect to.
+At the moment, you can either connect to all memcached servers, or all
+membase servers; reason for this is because there's a different way to
+connect to either set of machines as well as different assumptions as to how
+the caching machines are configured. (Long story short: membase requires
+configuration on the server itself before you can curl a specific URL for
+connection information, whereas with memcached servers, you can just list
+the machines that are on your network, and moxi does the rest of the magic.)
+
 = REQUIREMENTS:
 
 = ATTRIBUTES:
 
 = USAGE:
 
+= LICENSE AND AUTHOR:
+
+Author:: Christian Paredes (<christian.paredes@blueboxgrp.com>)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
