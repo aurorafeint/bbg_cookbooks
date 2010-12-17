@@ -26,7 +26,7 @@ raise "Machine role is #{node[:mysql][:server][:replication][:role]}; set it to 
 
 masters = search(:node, "mysql_server_replication_role:master")
 
-raise "Only allowing one master to be configured per cluster!  Aborting run." if masters.length >= 1
+raise "Only allowing one master to be configured per cluster!  Aborting run." if masters.length > 1
 
 # Store master log information in node attributes.
 

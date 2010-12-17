@@ -26,7 +26,7 @@ raise "Machine role is #{node[:mysql][:server][:replication][:role]}; set it to 
 
 dualmasters = search(:node, "mysql_server_replication_role:dualmaster")
 
-raise "We only allow two dualmasters to be configured per cluster!  Aborting run." if dualmasters.length >= 2
+raise "We only allow two dualmasters to be configured per cluster!  Aborting run." if dualmasters.length > 2
 
 # Store master log information in node attributes.
 
