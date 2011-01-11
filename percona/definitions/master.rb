@@ -32,6 +32,7 @@ define :master, :action => :create, :port => "3306", :replication_user => "repli
   if params[:action] == :create
     ruby_block "connect-to-master-#{params[:name]}" do
       block do
+        Chef::Log.info("Setting master host to #{params[:ip_address]} on port #{params[:port]}, with user #{params[:replication_user]}, log file at #{params[:master_log_file]}, position #{params[:master_log_pos]}")
         %x[mysql -u root -e "CHANGE MASTER TO master_host='#{params[:ip_address]}', master_port=#{params[:port]}, master_user='#{params[:replication_user]}', master_password='#{params[:replication_password]}', master_log_file='#{params[:master_log_file]}', master_log_pos=#{params[:master_log_pos]};"]
         %x[mysql -u root -e "START SLAVE;"]
       end

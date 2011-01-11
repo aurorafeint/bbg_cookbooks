@@ -29,6 +29,7 @@ define :slave, :action => :create, :replication_user => "replication" do
   if params[:action] == :create
     ruby_block "create-replication-#{params[:name]}-user" do
       block do
+        Chef::Log.info("Granting replication slave on *.* to #{params[:replication_user]}@#{params[:ip_address]}")
         %x[mysql -u root -e "GRANT REPLICATION SLAVE ON *.* TO '#{params[:replication_user]}'@'#{params[:ip_address]}' IDENTIFIED BY '#{params[:replication_password]}';"]
       end
       not_if "mysql -u root -e \"SELECT user,host from mysql.user where user='#{params[:replication_user]}';\" | grep #{params[:replication_user]} | grep #{params[:ip_address]}"
