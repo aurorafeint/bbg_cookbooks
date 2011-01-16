@@ -24,7 +24,7 @@ Sponsorship
 -----------
 ![BBG](http://www.bluebox.net/assets/69/BBG_logo.png)
 
-These scripts are sponsored and maintained by [http://www.blueboxgrp.com](Blue Box Group).
+These scripts are sponsored and maintained by [http://www.bluebox.net](Blue Box Group).
 
 License
 -------
